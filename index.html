@@ -2,15 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FlightLine Outernet Terminal | Language Grid</title>
-  <meta
-    name="description"
-    content="FlightLine Outernet Terminal — live read-only window into 133+ language globes, translations, and Suno audio prompts for Memphis DC."
-  />
+  <meta name="description" content="FlightLine Outernet Terminal — live read-only window into 133+ language globes, translations, Suno audio prompts, and map routes for Memphis DC." />
   <meta name="theme-color" content="#030711" />
 
   <style>
@@ -123,34 +117,24 @@
       color: var(--suno);
     }
 
-    /* HUD bar under header */
-    .hud-bar {
+    /* HUD line under header */
+    .hud-line {
       padding: 6px 24px 10px;
-      border-bottom: 1px solid var(--border);
-      background: radial-gradient(circle at top, #020617, #020617 60%, #000 100%);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      font-size: 0.75rem;
       color: var(--text-soft);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.85);
+      background: radial-gradient(circle at top, #020617, #020617 60%, #000 100%);
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    .hud-left {
-      opacity: 0.85;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .hud-right {
-      opacity: 0.85;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: right;
+    .hud-strong {
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     main {
@@ -375,7 +359,7 @@
 
     .pane-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) minmax(0, 1.05fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 0.9fr);
       gap: 14px;
       flex: 1;
       min-height: 0;
@@ -439,6 +423,18 @@
       font-style: italic;
     }
 
+    .selection-hint {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .selection-hint strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
     .footer-note {
       font-size: 0.75rem;
       color: var(--text-soft);
@@ -455,22 +451,79 @@
       opacity: 0.8;
     }
 
-    .selection-hint {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: var(--text-soft);
+    /* World button (OPEN WORLD WINDOW) */
+    .world-button-wrap {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(31, 41, 55, 0.8);
     }
 
-    .selection-hint strong {
+    .world-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      background: radial-gradient(circle at top, rgba(8, 47, 73, 0.9), rgba(15, 23, 42, 0.95));
       color: var(--accent);
-      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 0 1px rgba(8, 47, 73, 0.9), 0 10px 22px rgba(0, 0, 0, 0.6);
+      transition: all 0.14s ease-out;
+    }
+
+    .world-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.8), 0 14px 28px rgba(0, 0, 0, 0.8);
+    }
+
+    .world-button-note {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      opacity: 0.9;
+    }
+
+    /* Map pane pulse when button pressed */
+    .map-pane-pulse {
+      box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.9),
+        0 0 28px rgba(56, 189, 248, 0.7),
+        0 16px 40px rgba(0, 0, 0, 0.9);
+      transition: box-shadow 0.3s ease-out;
+    }
+
+    .map-lines div {
+      margin-bottom: 6px;
+    }
+
+    .map-link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(56, 189, 248, 0.7);
+    }
+
+    .map-link:hover {
+      text-decoration: underline;
+    }
+
+    .map-footer-note {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      opacity: 0.9;
     }
 
     @media (max-width: 1100px) {
       .pane-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         grid-auto-rows: minmax(0, 1fr);
+      }
+      #mapPane {
+        grid-column: 1 / -1;
       }
     }
 
@@ -518,14 +571,9 @@
     </div>
   </header>
 
-  <!-- Spacecraft HUD line -->
-  <div class="hud-bar">
-    <div class="hud-left" id="hudLeft">
-      OUTERNET TOWER GRID INITIALIZING…
-    </div>
-    <div class="hud-right" id="hudRight">
-      SUNO DRONES: 0 ACTIVE · MAP LAYERS: 0/0
-    </div>
+  <div class="hud-line">
+    <span class="hud-strong">OUTERNET FLIGHTLINE GRID</span>
+    <span id="hudLineText">Language grid initializing…</span>
   </div>
 
   <main>
@@ -560,7 +608,7 @@
       </div>
 
       <div class="pane-grid">
-        <!-- Pane 1: Translation -->
+        <!-- Translation pane -->
         <div class="pane">
           <div class="pane-header">
             <div class="pane-title">Translation Payload</div>
@@ -568,13 +616,13 @@
           </div>
           <div class="pane-body" id="translationBody">
             <div class="selection-hint">
-              <strong>Step 1:</strong> Choose a language from the left runway.<br />
+              <strong>Step 1:</strong> Choose a language from the left runway.<br/>
               This pane will show the translated message for that language.
             </div>
           </div>
         </div>
 
-        <!-- Pane 2: Suno Prompt -->
+        <!-- Suno pane -->
         <div class="pane">
           <div class="pane-header">
             <div class="pane-title">Suno Prompt</div>
@@ -588,17 +636,17 @@
           </div>
         </div>
 
-        <!-- Pane 3: Map Window -->
-        <div class="pane">
+        <!-- Map / spacecraft window pane -->
+        <div class="pane" id="mapPane">
           <div class="pane-header">
             <div class="pane-title">Map Window</div>
-            <div class="pane-tag pane-tag-empty" id="mapTag">No Layer</div>
+            <div class="pane-tag pane-tag-empty" id="mapTag">No Route Filed</div>
           </div>
           <div class="pane-body" id="mapBody">
             <div class="selection-hint">
-              <strong>Step 3:</strong> When a world has a map deployment, its MyMaps / KML links
-              will appear here as a navigation window.<br /><br />
-              For now, this pane will quietly wait for map metadata from the FlightLine scripts.
+              <strong>Step 3:</strong> When a world is armed with a map or KML route, this window
+              shows its Outernet flight path, grid sheet, and ops channels.<br/><br/>
+              Until then, this window waits as the silent spacecraft glass for that world.
             </div>
           </div>
         </div>
@@ -618,7 +666,6 @@
 
   <script>
     const MANIFEST_URL = "languages/index.json";
-    const TOWER_LABEL = "CONNECTICUT TOWER GRID";
 
     let manifestData = [];
     let selectedFile = null;
@@ -633,37 +680,21 @@
         manifestData = Array.isArray(data.languages) ? data.languages : [];
         renderSidebarStats();
         renderLanguageList();
-        renderHudStats();
       } catch (err) {
         console.error("Failed to load manifest:", err);
         document.getElementById("languageList").innerHTML =
-          "<div class='selection-hint'>Unable to load manifest from <code>languages/index.json</code>. Check GitHub Pages &amp; file path.</div>";
+          "<div class='selection-hint'>Unable to load manifest from <code>languages/index.json</code>. Check GitHub Pages & file path.</div>";
       }
     }
 
-    function renderHudStats() {
-      const total = manifestData.length;
-      const withSuno = manifestData.filter(l => l.has_suno_prompt).length;
-      // Future: once manifest has map fields, this will start counting them.
-      const withMap = manifestData.filter(
-        l => l.has_map || l.map_url || l.kml_url || l.map_layer_id
-      ).length;
-
-      const hudLeft = document.getElementById("hudLeft");
-      const hudRight = document.getElementById("hudRight");
-
-      if (hudLeft) {
-        hudLeft.textContent = total + "- " + TOWER_LABEL + " ONLINE";
-      }
-      if (hudRight) {
-        hudRight.textContent =
-          "SUNO DRONES: " +
-          withSuno +
-          " ACTIVE · MAP LAYERS: " +
-          withMap +
-          "/" +
-          total;
-      }
+    function updateHud(total, withTranslation, withSuno) {
+      const hud = document.getElementById("hudLineText");
+      if (!hud) return;
+      const parts = [];
+      parts.push(total + " LANGUAGE WORLDS ONLINE");
+      parts.push("TRANSLATION WORLDS: " + withTranslation + "/" + total);
+      parts.push("SUNO DRONES: " + withSuno);
+      hud.textContent = parts.join(" · ");
     }
 
     function renderSidebarStats() {
@@ -681,23 +712,17 @@
       stat1.className = "sidebar-stat";
       stat1.innerHTML =
         "<span class='badge-dot badge-translation'></span>" +
-        "<span>" +
-        withTranslation +
-        " / " +
-        total +
-        " have translations</span>";
+        "<span>" + withTranslation + " / " + total + " have translations</span>";
       statsEl.appendChild(stat1);
 
       const stat2 = document.createElement("div");
       stat2.className = "sidebar-stat";
       stat2.innerHTML =
         "<span class='badge-dot badge-suno'></span>" +
-        "<span>" +
-        withSuno +
-        " / " +
-        total +
-        " have Suno prompts</span>";
+        "<span>" + withSuno + " / " + total + " have Suno prompts</span>";
       statsEl.appendChild(stat2);
+
+      updateHud(total, withTranslation, withSuno);
     }
 
     function renderLanguageList() {
@@ -724,13 +749,11 @@
         const metaEl = document.createElement("div");
         metaEl.className = "lang-meta";
 
-        // Translation chip
         const chipT = document.createElement("span");
         chipT.className = "chip " + (lang.has_translation ? "chip-ok" : "chip-pending");
         chipT.textContent = "T";
         metaEl.appendChild(chipT);
 
-        // Suno chip
         const chipS = document.createElement("span");
         chipS.className = "chip " + (lang.has_suno_prompt ? "chip-suno" : "chip-pending");
         chipS.textContent = "S";
@@ -759,7 +782,7 @@
       document.getElementById("currentLanguageTitle").textContent =
         lang.language_id + " — Outernet World";
       document.getElementById("currentLanguageSub").textContent =
-        "Inspecting translation, Suno prompt, and map deployment for this language globe.";
+        "Inspecting translation, Suno prompt, and map window for this language globe.";
 
       let statusLabel = "Pending";
       let statusClass = "pending";
@@ -793,6 +816,7 @@
         }
         const json = await res.json();
         renderLanguageDetails(json);
+        renderMapWindow(json);
       } catch (err) {
         console.error("Failed to load language file:", err);
         document.getElementById("translationBody").innerHTML =
@@ -802,23 +826,44 @@
         document.getElementById("sunoBody").innerHTML =
           "<div class='empty-state'>No Suno content available.</div>";
         document.getElementById("mapBody").innerHTML =
-          "<div class='empty-state'>No map deployment linked for this language yet.</div>";
+          "<div class='empty-state'>No map deployment data available for this world yet.</div>";
         const mapTag = document.getElementById("mapTag");
-        mapTag.textContent = "No Layer";
+        mapTag.textContent = "No Route Filed";
         mapTag.classList.remove("pane-tag-ok");
         mapTag.classList.add("pane-tag-empty");
       }
     }
 
+    function attachWorldButton(targetEl) {
+      if (!targetEl) return;
+      const wrap = document.createElement("div");
+      wrap.className = "world-button-wrap";
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "world-button";
+      btn.textContent = "OPEN WORLD WINDOW";
+      btn.addEventListener("click", openWorldWindow);
+
+      const note = document.createElement("div");
+      note.className = "world-button-note";
+      note.textContent = "View this world's map, status, and deployment surface.";
+
+      wrap.appendChild(btn);
+      wrap.appendChild(note);
+      targetEl.appendChild(wrap);
+    }
+
     function renderLanguageDetails(json) {
       const translation = (json.translation || "").trim();
-      const sunoPrompt = (json.suno_prompt || "").trim();
+      const sunoPrompt  = (json.suno_prompt || "").trim();
 
       const translationBody = document.getElementById("translationBody");
       const sunoBody = document.getElementById("sunoBody");
       const translationTag = document.getElementById("translationTag");
       const sunoTag = document.getElementById("sunoTag");
 
+      // Translation pane
       if (translation) {
         translationBody.textContent = translation;
         translationTag.textContent = "Payload Present";
@@ -831,7 +876,9 @@
         translationTag.classList.remove("pane-tag-ok");
         translationTag.classList.add("pane-tag-empty");
       }
+      attachWorldButton(translationBody);
 
+      // Suno pane
       if (sunoPrompt) {
         sunoBody.textContent = sunoPrompt;
         sunoTag.textContent = "Prompt Armed";
@@ -844,56 +891,77 @@
         sunoTag.classList.remove("pane-tag-ok");
         sunoTag.classList.add("pane-tag-empty");
       }
+      attachWorldButton(sunoBody);
+    }
 
-      // Map window logic
+    function renderMapWindow(json) {
       const mapBody = document.getElementById("mapBody");
       const mapTag = document.getElementById("mapTag");
+      if (!mapBody || !mapTag) return;
 
-      const mapUrl = (json.map_url || json.maps_url || "").trim();
-      const kmlUrl = (json.kml_url || "").trim();
-      const mapLayer =
-        (json.map_layer_id || json.map_layer_name || json.map_layer || "").trim();
+      const mapUrl  = (json.map_url || "").trim();
+      const kmlUrl  = (json.kml_url || "").trim();
+      const layerId = (json.map_layer_id || json.map_pin_id || "").trim();
+      const sheetId = (json.sheet_id || "").trim();
+      const formId  = (json.form_id || "").trim();
 
-      if (mapUrl || kmlUrl || mapLayer) {
-        let html = "";
-
-        if (mapUrl) {
-          html +=
-            "<div><strong>MyMaps:</strong> <a href='" +
-            mapUrl +
-            "' target='_blank' rel='noopener noreferrer'>" +
-            mapUrl +
-            "</a></div>";
-        }
-        if (kmlUrl) {
-          html +=
-            "<div style='margin-top:6px;'><strong>KML:</strong> <a href='" +
-            kmlUrl +
-            "' target='_blank' rel='noopener noreferrer'>" +
-            kmlUrl +
-            "</a></div>";
-        }
-        if (mapLayer) {
-          html +=
-            "<div style='margin-top:6px;'><strong>Layer:</strong> <code>" +
-            mapLayer +
-            "</code></div>";
-        }
-
-        html +=
-          "<div style='margin-top:10px;font-size:0.8rem;opacity:0.8;'>Open in a new tab to view this language world as a map corridor in the Outernet.</div>";
-
-        mapBody.innerHTML = html;
-        mapTag.textContent = "Layer Linked";
-        mapTag.classList.remove("pane-tag-empty");
-        mapTag.classList.add("pane-tag-ok");
-      } else {
+      if (!mapUrl && !kmlUrl && !layerId && !sheetId && !formId) {
         mapBody.innerHTML =
-          "<div class='empty-state'>No map deployment linked for this language yet. When FlightLine scripts add MyMaps / KML fields, they will appear here automatically.</div>";
-        mapTag.textContent = "No Layer";
+          "<div class='empty-state'>This world is awaiting its first deployment.<br/><br/>" +
+          "• No route filed to the Outernet grid yet.<br/>" +
+          "• No KML flight path registered.<br/>" +
+          "• No MyMaps layer published.<br/><br/>" +
+          "Standing by for activation from FlightLine HQ.</div>";
+        mapTag.textContent = "No Route Filed";
         mapTag.classList.remove("pane-tag-ok");
         mapTag.classList.add("pane-tag-empty");
+        return;
       }
+
+      mapTag.textContent = "Route Online";
+      mapTag.classList.remove("pane-tag-empty");
+      mapTag.classList.add("pane-tag-ok");
+
+      let html = "<div class='map-lines'>";
+
+      if (mapUrl) {
+        html += "<div><strong>Outernet Map:</strong> " +
+          "<a class='map-link' href='" + mapUrl +
+          "' target='_blank' rel='noopener noreferrer'>Open MyMaps window</a></div>";
+      }
+
+      if (kmlUrl) {
+        html += "<div><strong>KML Route:</strong> " +
+          "<a class='map-link' href='" + kmlUrl +
+          "' target='_blank' rel='noopener noreferrer'>Download KML flight path</a></div>";
+      }
+
+      if (layerId) {
+        html += "<div><strong>Layer ID:</strong> <code>" + layerId + "</code></div>";
+      }
+
+      if (sheetId) {
+        html += "<div><strong>Grid Sheet:</strong> <code>" + sheetId + "</code></div>";
+      }
+
+      if (formId) {
+        html += "<div><strong>Ops Form:</strong> <code>" + formId + "</code></div>";
+      }
+
+      html += "<div class='map-footer-note'>This pane is your spacecraft window for this language — map, grid, and ops channels converge here.</div>";
+      html += "</div>";
+
+      mapBody.innerHTML = html;
+    }
+
+    function openWorldWindow() {
+      const mapPane = document.getElementById("mapPane");
+      if (!mapPane) return;
+      mapPane.scrollIntoView({ behavior: "smooth", block: "center" });
+      mapPane.classList.add("map-pane-pulse");
+      setTimeout(() => {
+        mapPane.classList.remove("map-pane-pulse");
+      }, 1200);
     }
 
     document.addEventListener("DOMContentLoaded", loadManifest);
