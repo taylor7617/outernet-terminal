@@ -1,0 +1,1076 @@
+{
+  "languages": [
+    {
+      "file": "Afrikaans.json",
+      "language_id": "Afrikaans",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:43:44.915Z"
+    },
+    {
+      "file": "Albanian.json",
+      "language_id": "Albanian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:43:47.441Z"
+    },
+    {
+      "file": "Amharic.json",
+      "language_id": "Amharic",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:43:49.611Z"
+    },
+    {
+      "file": "Arabic.json",
+      "language_id": "Arabic",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:43:51.836Z"
+    },
+    {
+      "file": "Armenian.json",
+      "language_id": "Armenian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:43:54.000Z"
+    },
+    {
+      "file": "Assamese.json",
+      "language_id": "Assamese",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Aymara.json",
+      "language_id": "Aymara",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Azerbaijani.json",
+      "language_id": "Azerbaijani",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:43:56.368Z"
+    },
+    {
+      "file": "Bambara.json",
+      "language_id": "Bambara",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Basque.json",
+      "language_id": "Basque",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:43:58.556Z"
+    },
+    {
+      "file": "Belarusian.json",
+      "language_id": "Belarusian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:00.920Z"
+    },
+    {
+      "file": "Bengali.json",
+      "language_id": "Bengali",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:02.901Z"
+    },
+    {
+      "file": "Bhoipuri.json",
+      "language_id": "Bhoipuri",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Bosnian.json",
+      "language_id": "Bosnian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:04.902Z"
+    },
+    {
+      "file": "Bulgarian.json",
+      "language_id": "Bulgarian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:07.100Z"
+    },
+    {
+      "file": "Catalan.json",
+      "language_id": "Catalan",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:09.262Z"
+    },
+    {
+      "file": "Cebuano.json",
+      "language_id": "Cebuano",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:11.455Z"
+    },
+    {
+      "file": "Chichewa.json",
+      "language_id": "Chichewa",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:13.590Z"
+    },
+    {
+      "file": "Chinese_simplified.json",
+      "language_id": "Chinese_simplified",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:15.781Z"
+    },
+    {
+      "file": "Chinese_traditional.json",
+      "language_id": "Chinese_traditional",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:17.876Z"
+    },
+    {
+      "file": "Corsican.json",
+      "language_id": "Corsican",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:20.123Z"
+    },
+    {
+      "file": "Croatian.json",
+      "language_id": "Croatian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:22.064Z"
+    },
+    {
+      "file": "Czech.json",
+      "language_id": "Czech",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:24.333Z"
+    },
+    {
+      "file": "Danish.json",
+      "language_id": "Danish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:26.633Z"
+    },
+    {
+      "file": "Dhivehi.json",
+      "language_id": "Dhivehi",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Dogri.json",
+      "language_id": "Dogri",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Dutch.json",
+      "language_id": "Dutch",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:29.559Z"
+    },
+    {
+      "file": "English.json",
+      "language_id": "English",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": true,
+      "last_updated": "2025-12-10T11:44:31.790Z"
+    },
+    {
+      "file": "Esperanto.json",
+      "language_id": "Esperanto",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:36.228Z"
+    },
+    {
+      "file": "Estonia.json",
+      "language_id": "Estonia",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:33.917Z"
+    },
+    {
+      "file": "Ewe.json",
+      "language_id": "Ewe",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Filipino.json",
+      "language_id": "Filipino",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:30.697Z"
+    },
+    {
+      "file": "Finnish.json",
+      "language_id": "Finnish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:28.752Z"
+    },
+    {
+      "file": "French.json",
+      "language_id": "French",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:25.851Z"
+    },
+    {
+      "file": "Frisian.json",
+      "language_id": "Frisian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:23.429Z"
+    },
+    {
+      "file": "Galician.json",
+      "language_id": "Galician",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:21.044Z"
+    },
+    {
+      "file": "Georgian.json",
+      "language_id": "Georgian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:18.927Z"
+    },
+    {
+      "file": "German.json",
+      "language_id": "German",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:16.315Z"
+    },
+    {
+      "file": "Greek.json",
+      "language_id": "Greek",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:13.749Z"
+    },
+    {
+      "file": "Guarani.json",
+      "language_id": "Guarani",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Gujarati.json",
+      "language_id": "Gujarati",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:10.684Z"
+    },
+    {
+      "file": "Hatian_creole.json",
+      "language_id": "Hatian_creole",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:07.965Z"
+    },
+    {
+      "file": "Hausa.json",
+      "language_id": "Hausa",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:05.677Z"
+    },
+    {
+      "file": "Hawaiian.json",
+      "language_id": "Hawaiian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:03.024Z"
+    },
+    {
+      "file": "Hebrew.json",
+      "language_id": "Hebrew",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:42:00.564Z"
+    },
+    {
+      "file": "Hindi.json",
+      "language_id": "Hindi",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:58.272Z"
+    },
+    {
+      "file": "Hmong.json",
+      "language_id": "Hmong",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:55.788Z"
+    },
+    {
+      "file": "Hungarian.json",
+      "language_id": "Hungarian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:53.569Z"
+    },
+    {
+      "file": "Icelandic.json",
+      "language_id": "Icelandic",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:50.956Z"
+    },
+    {
+      "file": "Igbo.json",
+      "language_id": "Igbo",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:48.458Z"
+    },
+    {
+      "file": "Ilocano.json",
+      "language_id": "Ilocano",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Indonesian.json",
+      "language_id": "Indonesian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:44.786Z"
+    },
+    {
+      "file": "Irish.json",
+      "language_id": "Irish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:42.279Z"
+    },
+    {
+      "file": "Italian.json",
+      "language_id": "Italian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:40.014Z"
+    },
+    {
+      "file": "Japanese.json",
+      "language_id": "Japanese",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:37.538Z"
+    },
+    {
+      "file": "Javanese.json",
+      "language_id": "Javanese",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:34.641Z"
+    },
+    {
+      "file": "Kannada.json",
+      "language_id": "Kannada",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:32.053Z"
+    },
+    {
+      "file": "Kazakh.json",
+      "language_id": "Kazakh",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:29.638Z"
+    },
+    {
+      "file": "Khmer.json",
+      "language_id": "Khmer",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:27.268Z"
+    },
+    {
+      "file": "Kinyarwanda.json",
+      "language_id": "Kinyarwanda",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:24.719Z"
+    },
+    {
+      "file": "Konkani.json",
+      "language_id": "Konkani",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Korean.json",
+      "language_id": "Korean",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:21.385Z"
+    },
+    {
+      "file": "Krio.json",
+      "language_id": "Krio",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Kurdish_kurmanji.json",
+      "language_id": "Kurdish_kurmanji",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:17.586Z"
+    },
+    {
+      "file": "Kurdish_sorani.json",
+      "language_id": "Kurdish_sorani",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Kyrgyz.json",
+      "language_id": "Kyrgyz",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:14.711Z"
+    },
+    {
+      "file": "Lao.json",
+      "language_id": "Lao",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:12.188Z"
+    },
+    {
+      "file": "Latin.json",
+      "language_id": "Latin",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:08.977Z"
+    },
+    {
+      "file": "Latvian.json",
+      "language_id": "Latvian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:06.661Z"
+    },
+    {
+      "file": "Lingala.json",
+      "language_id": "Lingala",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Lithuanian.json",
+      "language_id": "Lithuanian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:03.373Z"
+    },
+    {
+      "file": "Luganda.json",
+      "language_id": "Luganda",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Luxembourgish.json",
+      "language_id": "Luxembourgish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:41:00.138Z"
+    },
+    {
+      "file": "Macedonian.json",
+      "language_id": "Macedonian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:57.704Z"
+    },
+    {
+      "file": "Maithili.json",
+      "language_id": "Maithili",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Malagasy.json",
+      "language_id": "Malagasy",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:54.154Z"
+    },
+    {
+      "file": "Malay.json",
+      "language_id": "Malay",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:51.372Z"
+    },
+    {
+      "file": "Malayalam.json",
+      "language_id": "Malayalam",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:48.830Z"
+    },
+    {
+      "file": "Maltese.json",
+      "language_id": "Maltese",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:46.220Z"
+    },
+    {
+      "file": "Maori.json",
+      "language_id": "Maori",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:43.950Z"
+    },
+    {
+      "file": "Marathi.json",
+      "language_id": "Marathi",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:41.807Z"
+    },
+    {
+      "file": "Meiteilon_manipuri.json",
+      "language_id": "Meiteilon_manipuri",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Mizo.json",
+      "language_id": "Mizo",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Mongolian.json",
+      "language_id": "Mongolian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:37.435Z"
+    },
+    {
+      "file": "Myanmar_burmese.json",
+      "language_id": "Myanmar_burmese",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:34.923Z"
+    },
+    {
+      "file": "Nepali.json",
+      "language_id": "Nepali",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:31.957Z"
+    },
+    {
+      "file": "Norwegian.json",
+      "language_id": "Norwegian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:29.627Z"
+    },
+    {
+      "file": "Odia_oriva.json",
+      "language_id": "Odia_oriva",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:27.033Z"
+    },
+    {
+      "file": "Oromo.json",
+      "language_id": "Oromo",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Pashto.json",
+      "language_id": "Pashto",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:21.690Z"
+    },
+    {
+      "file": "Persian_farsi.json",
+      "language_id": "Persian_farsi",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:19.550Z"
+    },
+    {
+      "file": "Polish.json",
+      "language_id": "Polish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:17.013Z"
+    },
+    {
+      "file": "Portuguese.json",
+      "language_id": "Portuguese",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:14.499Z"
+    },
+    {
+      "file": "Punjabi.json",
+      "language_id": "Punjabi",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:11.994Z"
+    },
+    {
+      "file": "Quechua.json",
+      "language_id": "Quechua",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Romanian.json",
+      "language_id": "Romanian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:08.676Z"
+    },
+    {
+      "file": "Russian.json",
+      "language_id": "Russian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:06.116Z"
+    },
+    {
+      "file": "Samoan.json",
+      "language_id": "Samoan",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:40:03.499Z"
+    },
+    {
+      "file": "Sanskrit.json",
+      "language_id": "Sanskrit",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Scots_gaelic.json",
+      "language_id": "Scots_gaelic",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:59.788Z"
+    },
+    {
+      "file": "Sepedi.json",
+      "language_id": "Sepedi",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Serbian.json",
+      "language_id": "Serbian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:56.519Z"
+    },
+    {
+      "file": "Sesotho.json",
+      "language_id": "Sesotho",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:53.962Z"
+    },
+    {
+      "file": "Shona.json",
+      "language_id": "Shona",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:51.035Z"
+    },
+    {
+      "file": "Sindhi.json",
+      "language_id": "Sindhi",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:48.845Z"
+    },
+    {
+      "file": "Sinhala.json",
+      "language_id": "Sinhala",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:46.129Z"
+    },
+    {
+      "file": "Slovak.json",
+      "language_id": "Slovak",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:43.666Z"
+    },
+    {
+      "file": "Slovenian.json",
+      "language_id": "Slovenian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:40.809Z"
+    },
+    {
+      "file": "Somali.json",
+      "language_id": "Somali",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:38.304Z"
+    },
+    {
+      "file": "Spanish.json",
+      "language_id": "Spanish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:35.577Z"
+    },
+    {
+      "file": "Sundanese.json",
+      "language_id": "Sundanese",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:32.879Z"
+    },
+    {
+      "file": "Swahili.json",
+      "language_id": "Swahili",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:30.262Z"
+    },
+    {
+      "file": "Swedish.json",
+      "language_id": "Swedish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:27.242Z"
+    },
+    {
+      "file": "Tagalog.json",
+      "language_id": "Tagalog",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:24.581Z"
+    },
+    {
+      "file": "Tajik.json",
+      "language_id": "Tajik",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:21.927Z"
+    },
+    {
+      "file": "Tamil.json",
+      "language_id": "Tamil",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:19.320Z"
+    },
+    {
+      "file": "Tatar.json",
+      "language_id": "Tatar",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:16.751Z"
+    },
+    {
+      "file": "Telugu.json",
+      "language_id": "Telugu",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:13.980Z"
+    },
+    {
+      "file": "Thai.json",
+      "language_id": "Thai",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:11.455Z"
+    },
+    {
+      "file": "Tigrinya.json",
+      "language_id": "Tigrinya",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Tsonga.json",
+      "language_id": "Tsonga",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Turkish.json",
+      "language_id": "Turkish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:07.214Z"
+    },
+    {
+      "file": "Turkmen.json",
+      "language_id": "Turkmen",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:03.933Z"
+    },
+    {
+      "file": "Twi.json",
+      "language_id": "Twi",
+      "status": "pending",
+      "has_translation": false,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T10:49:34.446Z"
+    },
+    {
+      "file": "Ukrainian.json",
+      "language_id": "Ukrainian",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:39:00.357Z"
+    },
+    {
+      "file": "Urdu.json",
+      "language_id": "Urdu",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:57.484Z"
+    },
+    {
+      "file": "Uyghur.json",
+      "language_id": "Uyghur",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:54.501Z"
+    },
+    {
+      "file": "Uzbek.json",
+      "language_id": "Uzbek",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:51.940Z"
+    },
+    {
+      "file": "Vietnamese.json",
+      "language_id": "Vietnamese",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:49.382Z"
+    },
+    {
+      "file": "Welsh.json",
+      "language_id": "Welsh",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:46.934Z"
+    },
+    {
+      "file": "Xhosa.json",
+      "language_id": "Xhosa",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:44.285Z"
+    },
+    {
+      "file": "Yiddish.json",
+      "language_id": "Yiddish",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:41.516Z"
+    },
+    {
+      "file": "Yoruba.json",
+      "language_id": "Yoruba",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:38.668Z"
+    },
+    {
+      "file": "Zulu.json",
+      "language_id": "Zulu",
+      "status": "pending",
+      "has_translation": true,
+      "has_suno_prompt": false,
+      "last_updated": "2025-12-10T11:38:35.448Z"
+    }
+  ]
+}
