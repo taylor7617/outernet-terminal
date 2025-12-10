@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
   <title>FlightLine Outernet Terminal | Language Grid</title>
-  <meta name="description" content="FlightLine Outernet Terminal — live read-only window into 133+ language globes, translations, and Suno audio prompts for Memphis DC." />
+  <meta
+    name="description"
+    content="FlightLine Outernet Terminal — live read-only window into 133+ language globes, translations, and Suno audio prompts for Memphis DC."
+  />
   <meta name="theme-color" content="#030711" />
 
   <style>
@@ -100,18 +106,6 @@
       border-radius: 999px;
       background: var(--accent);
       box-shadow: 0 0 10px var(--accent);
-      animation: pulse-dot 1.8s ease-in-out infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 8px var(--accent);
-      }
-      50% {
-        transform: scale(1.3);
-        box-shadow: 0 0 16px var(--accent);
-      }
     }
 
     .pill-ok {
@@ -127,6 +121,36 @@
     .pill-suno {
       border-color: rgba(249, 115, 22, 0.5);
       color: var(--suno);
+    }
+
+    /* HUD bar under header */
+    .hud-bar {
+      padding: 6px 24px 10px;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617, #020617 60%, #000 100%);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hud-left {
+      opacity: 0.85;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hud-right {
+      opacity: 0.85;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: right;
     }
 
     main {
@@ -238,18 +262,6 @@
       background: rgba(8, 47, 73, 0.95);
       box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7),
         0 12px 25px rgba(15, 23, 42, 0.9);
-      animation: active-glow 2.2s ease-in-out infinite;
-    }
-
-    @keyframes active-glow {
-      0%, 100% {
-        box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7),
-          0 12px 25px rgba(15, 23, 42, 0.9);
-      }
-      50% {
-        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.9),
-          0 18px 35px rgba(15, 23, 42, 0.95);
-      }
     }
 
     .lang-name {
@@ -363,7 +375,7 @@
 
     .pane-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) minmax(0, 1.05fr);
       gap: 14px;
       flex: 1;
       min-height: 0;
@@ -455,6 +467,13 @@
       font-weight: 600;
     }
 
+    @media (max-width: 1100px) {
+      .pane-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(0, 1fr);
+      }
+    }
+
     @media (max-width: 900px) {
       main {
         flex-direction: column;
@@ -499,6 +518,16 @@
     </div>
   </header>
 
+  <!-- Spacecraft HUD line -->
+  <div class="hud-bar">
+    <div class="hud-left" id="hudLeft">
+      OUTERNET TOWER GRID INITIALIZING…
+    </div>
+    <div class="hud-right" id="hudRight">
+      SUNO DRONES: 0 ACTIVE · MAP LAYERS: 0/0
+    </div>
+  </div>
+
   <main>
     <aside class="sidebar">
       <div class="sidebar-header">
@@ -531,6 +560,7 @@
       </div>
 
       <div class="pane-grid">
+        <!-- Pane 1: Translation -->
         <div class="pane">
           <div class="pane-header">
             <div class="pane-title">Translation Payload</div>
@@ -538,12 +568,13 @@
           </div>
           <div class="pane-body" id="translationBody">
             <div class="selection-hint">
-              <strong>Step 1:</strong> Choose a language from the left runway.<br/>
+              <strong>Step 1:</strong> Choose a language from the left runway.<br />
               This pane will show the translated message for that language.
             </div>
           </div>
         </div>
 
+        <!-- Pane 2: Suno Prompt -->
         <div class="pane">
           <div class="pane-header">
             <div class="pane-title">Suno Prompt</div>
@@ -553,6 +584,21 @@
             <div class="selection-hint">
               <strong>Step 2:</strong> Once a language is loaded, this pane will display the
               exact Suno prompt Gemini prepared for that world.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 3: Map Window -->
+        <div class="pane">
+          <div class="pane-header">
+            <div class="pane-title">Map Window</div>
+            <div class="pane-tag pane-tag-empty" id="mapTag">No Layer</div>
+          </div>
+          <div class="pane-body" id="mapBody">
+            <div class="selection-hint">
+              <strong>Step 3:</strong> When a world has a map deployment, its MyMaps / KML links
+              will appear here as a navigation window.<br /><br />
+              For now, this pane will quietly wait for map metadata from the FlightLine scripts.
             </div>
           </div>
         </div>
@@ -572,6 +618,7 @@
 
   <script>
     const MANIFEST_URL = "languages/index.json";
+    const TOWER_LABEL = "CONNECTICUT TOWER GRID";
 
     let manifestData = [];
     let selectedFile = null;
@@ -586,10 +633,36 @@
         manifestData = Array.isArray(data.languages) ? data.languages : [];
         renderSidebarStats();
         renderLanguageList();
+        renderHudStats();
       } catch (err) {
         console.error("Failed to load manifest:", err);
         document.getElementById("languageList").innerHTML =
-          "<div class='selection-hint'>Unable to load manifest from <code>languages/index.json</code>. Check GitHub Pages & file path.</div>";
+          "<div class='selection-hint'>Unable to load manifest from <code>languages/index.json</code>. Check GitHub Pages &amp; file path.</div>";
+      }
+    }
+
+    function renderHudStats() {
+      const total = manifestData.length;
+      const withSuno = manifestData.filter(l => l.has_suno_prompt).length;
+      // Future: once manifest has map fields, this will start counting them.
+      const withMap = manifestData.filter(
+        l => l.has_map || l.map_url || l.kml_url || l.map_layer_id
+      ).length;
+
+      const hudLeft = document.getElementById("hudLeft");
+      const hudRight = document.getElementById("hudRight");
+
+      if (hudLeft) {
+        hudLeft.textContent = total + "- " + TOWER_LABEL + " ONLINE";
+      }
+      if (hudRight) {
+        hudRight.textContent =
+          "SUNO DRONES: " +
+          withSuno +
+          " ACTIVE · MAP LAYERS: " +
+          withMap +
+          "/" +
+          total;
       }
     }
 
@@ -608,14 +681,22 @@
       stat1.className = "sidebar-stat";
       stat1.innerHTML =
         "<span class='badge-dot badge-translation'></span>" +
-        "<span>" + withTranslation + " / " + total + " have translations</span>";
+        "<span>" +
+        withTranslation +
+        " / " +
+        total +
+        " have translations</span>";
       statsEl.appendChild(stat1);
 
       const stat2 = document.createElement("div");
       stat2.className = "sidebar-stat";
       stat2.innerHTML =
         "<span class='badge-dot badge-suno'></span>" +
-        "<span>" + withSuno + " / " + total + " have Suno prompts</span>";
+        "<span>" +
+        withSuno +
+        " / " +
+        total +
+        " have Suno prompts</span>";
       statsEl.appendChild(stat2);
     }
 
@@ -643,29 +724,17 @@
         const metaEl = document.createElement("div");
         metaEl.className = "lang-meta";
 
-        if (lang.has_translation) {
-          const chipT = document.createElement("span");
-          chipT.className = "chip chip-ok";
-          chipT.textContent = "T";
-          metaEl.appendChild(chipT);
-        } else {
-          const chipT = document.createElement("span");
-          chipT.className = "chip chip-pending";
-          chipT.textContent = "T";
-          metaEl.appendChild(chipT);
-        }
+        // Translation chip
+        const chipT = document.createElement("span");
+        chipT.className = "chip " + (lang.has_translation ? "chip-ok" : "chip-pending");
+        chipT.textContent = "T";
+        metaEl.appendChild(chipT);
 
-        if (lang.has_suno_prompt) {
-          const chipS = document.createElement("span");
-          chipS.className = "chip chip-suno";
-          chipS.textContent = "S";
-          metaEl.appendChild(chipS);
-        } else {
-          const chipS = document.createElement("span");
-          chipS.className = "chip chip-pending";
-          chipS.textContent = "S";
-          metaEl.appendChild(chipS);
-        }
+        // Suno chip
+        const chipS = document.createElement("span");
+        chipS.className = "chip " + (lang.has_suno_prompt ? "chip-suno" : "chip-pending");
+        chipS.textContent = "S";
+        metaEl.appendChild(chipS);
 
         item.appendChild(nameEl);
         item.appendChild(metaEl);
@@ -690,7 +759,7 @@
       document.getElementById("currentLanguageTitle").textContent =
         lang.language_id + " — Outernet World";
       document.getElementById("currentLanguageSub").textContent =
-        "Inspecting translation & Suno prompt for this language globe.";
+        "Inspecting translation, Suno prompt, and map deployment for this language globe.";
 
       let statusLabel = "Pending";
       let statusClass = "pending";
@@ -732,12 +801,18 @@
           "</code>.</div>";
         document.getElementById("sunoBody").innerHTML =
           "<div class='empty-state'>No Suno content available.</div>";
+        document.getElementById("mapBody").innerHTML =
+          "<div class='empty-state'>No map deployment linked for this language yet.</div>";
+        const mapTag = document.getElementById("mapTag");
+        mapTag.textContent = "No Layer";
+        mapTag.classList.remove("pane-tag-ok");
+        mapTag.classList.add("pane-tag-empty");
       }
     }
 
     function renderLanguageDetails(json) {
       const translation = (json.translation || "").trim();
-      const sunoPrompt  = (json.suno_prompt || "").trim();
+      const sunoPrompt = (json.suno_prompt || "").trim();
 
       const translationBody = document.getElementById("translationBody");
       const sunoBody = document.getElementById("sunoBody");
@@ -768,6 +843,56 @@
         sunoTag.textContent = "No Prompt";
         sunoTag.classList.remove("pane-tag-ok");
         sunoTag.classList.add("pane-tag-empty");
+      }
+
+      // Map window logic
+      const mapBody = document.getElementById("mapBody");
+      const mapTag = document.getElementById("mapTag");
+
+      const mapUrl = (json.map_url || json.maps_url || "").trim();
+      const kmlUrl = (json.kml_url || "").trim();
+      const mapLayer =
+        (json.map_layer_id || json.map_layer_name || json.map_layer || "").trim();
+
+      if (mapUrl || kmlUrl || mapLayer) {
+        let html = "";
+
+        if (mapUrl) {
+          html +=
+            "<div><strong>MyMaps:</strong> <a href='" +
+            mapUrl +
+            "' target='_blank' rel='noopener noreferrer'>" +
+            mapUrl +
+            "</a></div>";
+        }
+        if (kmlUrl) {
+          html +=
+            "<div style='margin-top:6px;'><strong>KML:</strong> <a href='" +
+            kmlUrl +
+            "' target='_blank' rel='noopener noreferrer'>" +
+            kmlUrl +
+            "</a></div>";
+        }
+        if (mapLayer) {
+          html +=
+            "<div style='margin-top:6px;'><strong>Layer:</strong> <code>" +
+            mapLayer +
+            "</code></div>";
+        }
+
+        html +=
+          "<div style='margin-top:10px;font-size:0.8rem;opacity:0.8;'>Open in a new tab to view this language world as a map corridor in the Outernet.</div>";
+
+        mapBody.innerHTML = html;
+        mapTag.textContent = "Layer Linked";
+        mapTag.classList.remove("pane-tag-empty");
+        mapTag.classList.add("pane-tag-ok");
+      } else {
+        mapBody.innerHTML =
+          "<div class='empty-state'>No map deployment linked for this language yet. When FlightLine scripts add MyMaps / KML fields, they will appear here automatically.</div>";
+        mapTag.textContent = "No Layer";
+        mapTag.classList.remove("pane-tag-ok");
+        mapTag.classList.add("pane-tag-empty");
       }
     }
 
