@@ -1,1 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlightLine Outernet Terminal | Language Grid</title>
+  <meta name="description" content="FlightLine Outernet Terminal — live read-only window into 133+ language globes, translations, and Suno audio prompts for Memphis DC." />
+  <meta name="theme-color" content="#030711" />
 
+  <style>
+    :root {
+      --bg: #030711;
+      --bg-alt: #070c1a;
+      --panel: #0b1220;
+      --border: #1f2937;
+      --accent: #00e5ff;
+      --accent-soft: rgba(0, 229, 255, 0.12);
+      --suno: #f97316;
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --danger: #f97373;
+      --ok: #4ade80;
+      --pending: #eab308;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120, #020617 55%, #000 100%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.9),
+        rgba(8, 47, 73, 0.8)
+      );
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .header-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 8px var(--accent);
+      }
+      50% {
+        transform: scale(1.3);
+        box-shadow: 0 0 16px var(--accent);
+      }
+    }
+
+    .pill-ok {
+      border-color: rgba(74, 222, 128, 0.4);
+      color: var(--ok);
+    }
+
+    .pill-warn {
+      border-color: rgba(234, 179, 8, 0.4);
+      color: var(--pending);
+    }
+
+    .pill-suno {
+      border-color: rgba(249, 115, 22, 0.5);
+      color: var(--suno);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      width: 320px;
+      max-width: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.9),
+        rgba(8, 47, 73, 0.9)
+      );
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .sidebar-count {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .sidebar-stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.73rem;
+    }
+
+    .sidebar-stat {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sidebar-stat span.badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .badge-translation {
+      background: var(--ok);
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+    }
+
+    .badge-suno {
+      background: var(--suno);
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.7);
+    }
+
+    .language-list {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .language-item {
+      border-radius: 12px;
+      border: 1px solid transparent;
+      padding: 8px 10px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      font-size: 0.84rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.7);
+      transition: all 0.13s ease-out;
+    }
+
+    .language-item:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+      background: rgba(8, 47, 73, 0.85);
+      transform: translateY(-1px);
+    }
+
+    .language-item.active {
+      border-color: var(--accent);
+      background: rgba(8, 47, 73, 0.95);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7),
+        0 12px 25px rgba(15, 23, 42, 0.9);
+      animation: active-glow 2.2s ease-in-out infinite;
+    }
+
+    @keyframes active-glow {
+      0%, 100% {
+        box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7),
+          0 12px 25px rgba(15, 23, 42, 0.9);
+      }
+      50% {
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.9),
+          0 18px 35px rgba(15, 23, 42, 0.95);
+      }
+    }
+
+    .lang-name {
+      font-weight: 500;
+    }
+
+    .lang-meta {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 2px 7px;
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chip-ok {
+      border-color: rgba(74, 222, 128, 0.5);
+      color: var(--ok);
+    }
+
+    .chip-suno {
+      border-color: rgba(249, 115, 22, 0.6);
+      color: var(--suno);
+    }
+
+    .chip-pending {
+      border-color: rgba(234, 179, 8, 0.6);
+      color: var(--pending);
+    }
+
+    .content-panel {
+      flex: 1;
+      min-width: 0;
+      background: radial-gradient(circle at top left, #0f172a, #020617 55%);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .content-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .content-title h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .content-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .content-meta {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .status-line {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.7);
+    }
+
+    .status-dot.pending {
+      background: var(--pending);
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.7);
+    }
+
+    .status-dot.none {
+      background: var(--danger);
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+    }
+
+    .pane-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 14px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .pane {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .pane-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .pane-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .pane-tag {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      padding: 2px 7px;
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+    }
+
+    .pane-tag-ok {
+      border-color: rgba(74, 222, 128, 0.7);
+      color: var(--ok);
+    }
+
+    .pane-tag-empty {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .pane-body {
+      flex: 1;
+      overflow-y: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text-soft);
+      white-space: pre-wrap;
+      padding-right: 2px;
+    }
+
+    .empty-state {
+      opacity: 0.7;
+      font-style: italic;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px dashed var(--border);
+      padding-top: 8px;
+      margin-top: 2px;
+    }
+
+    .footer-note span {
+      opacity: 0.8;
+    }
+
+    .selection-hint {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .selection-hint strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        max-height: 220px;
+      }
+      .pane-grid {
+        grid-template-columns: 1fr;
+      }
+      .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .content-meta {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="brand-title">FLIGHTLINE · OUTERNET TERMINAL</div>
+      <div class="brand-sub">Language Grid · Memphis DC · Echo Company</div>
+    </div>
+    <div class="header-badges">
+      <div class="pill">
+        <span class="pill-dot"></span>
+        <span>Live GitHub Surface</span>
+      </div>
+      <div class="pill pill-ok">
+        <span>Translations</span>
+      </div>
+      <div class="pill pill-suno">
+        <span>Suno Prompts Armed</span>
+      </div>
+      <div class="pill pill-warn">
+        <span>Read-only Outernet Lens</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Language Worlds</div>
+        <div class="sidebar-count" id="languageCount">0 languages</div>
+      </div>
+      <div class="sidebar-stats" id="sidebarStats">
+        <!-- Filled by JS -->
+      </div>
+      <div class="language-list" id="languageList">
+        <!-- Filled by JS -->
+      </div>
+    </aside>
+
+    <section class="content-panel">
+      <div class="content-header">
+        <div class="content-title">
+          <h1 id="currentLanguageTitle">Select a Language World</h1>
+          <div class="content-sub" id="currentLanguageSub">
+            Click any language on the left to inspect its translation and Suno prompt.
+          </div>
+        </div>
+        <div class="content-meta">
+          <div class="status-line">
+            <div class="status-dot pending" id="statusDot"></div>
+            <span id="statusText">No language selected</span>
+          </div>
+          <div id="lastUpdatedText">Last updated: —</div>
+        </div>
+      </div>
+
+      <div class="pane-grid">
+        <div class="pane">
+          <div class="pane-header">
+            <div class="pane-title">Translation Payload</div>
+            <div class="pane-tag" id="translationTag">No Payload</div>
+          </div>
+          <div class="pane-body" id="translationBody">
+            <div class="selection-hint">
+              <strong>Step 1:</strong> Choose a language from the left runway.<br/>
+              This pane will show the translated message for that language.
+            </div>
+          </div>
+        </div>
+
+        <div class="pane">
+          <div class="pane-header">
+            <div class="pane-title">Suno Prompt</div>
+            <div class="pane-tag" id="sunoTag">No Prompt</div>
+          </div>
+          <div class="pane-body" id="sunoBody">
+            <div class="selection-hint">
+              <strong>Step 2:</strong> Once a language is loaded, this pane will display the
+              exact Suno prompt Gemini prepared for that world.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        <span>
+          This page is a passive display of JSON state from
+          <strong>outernet-terminal/languages</strong> — no cookies, no trackers, no login.
+        </span>
+        <span>
+          Managed upstream by FlightLine Scripts (Drive → Gemini → Apps Script) and mirrored here via GitHub.
+        </span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const MANIFEST_URL = "languages/index.json";
+
+    let manifestData = [];
+    let selectedFile = null;
+
+    async function loadManifest() {
+      try {
+        const res = await fetch(MANIFEST_URL);
+        if (!res.ok) {
+          throw new Error("Manifest HTTP " + res.status);
+        }
+        const data = await res.json();
+        manifestData = Array.isArray(data.languages) ? data.languages : [];
+        renderSidebarStats();
+        renderLanguageList();
+      } catch (err) {
+        console.error("Failed to load manifest:", err);
+        document.getElementById("languageList").innerHTML =
+          "<div class='selection-hint'>Unable to load manifest from <code>languages/index.json</code>. Check GitHub Pages & file path.</div>";
+      }
+    }
+
+    function renderSidebarStats() {
+      const total = manifestData.length;
+      const withTranslation = manifestData.filter(l => l.has_translation).length;
+      const withSuno = manifestData.filter(l => l.has_suno_prompt).length;
+
+      document.getElementById("languageCount").textContent =
+        total + " language" + (total === 1 ? "" : "s");
+
+      const statsEl = document.getElementById("sidebarStats");
+      statsEl.innerHTML = "";
+
+      const stat1 = document.createElement("div");
+      stat1.className = "sidebar-stat";
+      stat1.innerHTML =
+        "<span class='badge-dot badge-translation'></span>" +
+        "<span>" + withTranslation + " / " + total + " have translations</span>";
+      statsEl.appendChild(stat1);
+
+      const stat2 = document.createElement("div");
+      stat2.className = "sidebar-stat";
+      stat2.innerHTML =
+        "<span class='badge-dot badge-suno'></span>" +
+        "<span>" + withSuno + " / " + total + " have Suno prompts</span>";
+      statsEl.appendChild(stat2);
+    }
+
+    function renderLanguageList() {
+      const listEl = document.getElementById("languageList");
+      listEl.innerHTML = "";
+
+      const sorted = [...manifestData].sort((a, b) =>
+        a.language_id.localeCompare(b.language_id)
+      );
+
+      sorted.forEach(lang => {
+        const item = document.createElement("div");
+        item.className = "language-item";
+        item.dataset.file = lang.file;
+
+        if (selectedFile === lang.file) {
+          item.classList.add("active");
+        }
+
+        const nameEl = document.createElement("div");
+        nameEl.className = "lang-name";
+        nameEl.textContent = lang.language_id;
+
+        const metaEl = document.createElement("div");
+        metaEl.className = "lang-meta";
+
+        if (lang.has_translation) {
+          const chipT = document.createElement("span");
+          chipT.className = "chip chip-ok";
+          chipT.textContent = "T";
+          metaEl.appendChild(chipT);
+        } else {
+          const chipT = document.createElement("span");
+          chipT.className = "chip chip-pending";
+          chipT.textContent = "T";
+          metaEl.appendChild(chipT);
+        }
+
+        if (lang.has_suno_prompt) {
+          const chipS = document.createElement("span");
+          chipS.className = "chip chip-suno";
+          chipS.textContent = "S";
+          metaEl.appendChild(chipS);
+        } else {
+          const chipS = document.createElement("span");
+          chipS.className = "chip chip-pending";
+          chipS.textContent = "S";
+          metaEl.appendChild(chipS);
+        }
+
+        item.appendChild(nameEl);
+        item.appendChild(metaEl);
+
+        item.addEventListener("click", () => {
+          selectLanguage(lang.file);
+        });
+
+        listEl.appendChild(item);
+      });
+    }
+
+    async function selectLanguage(fileName) {
+      selectedFile = fileName;
+      Array.from(document.getElementsByClassName("language-item")).forEach(el => {
+        el.classList.toggle("active", el.dataset.file === fileName);
+      });
+
+      const lang = manifestData.find(l => l.file === fileName);
+      if (!lang) return;
+
+      document.getElementById("currentLanguageTitle").textContent =
+        lang.language_id + " — Outernet World";
+      document.getElementById("currentLanguageSub").textContent =
+        "Inspecting translation & Suno prompt for this language globe.";
+
+      let statusLabel = "Pending";
+      let statusClass = "pending";
+      if (lang.has_translation && lang.has_suno_prompt) {
+        statusLabel = "Translation + Suno armed";
+        statusClass = "ok";
+      } else if (lang.has_translation || lang.has_suno_prompt) {
+        statusLabel = "Partially armed";
+        statusClass = "pending";
+      } else {
+        statusLabel = "No payload yet";
+        statusClass = "none";
+      }
+
+      const statusDot = document.getElementById("statusDot");
+      statusDot.classList.remove("pending", "none");
+      if (statusClass === "pending") {
+        statusDot.classList.add("pending");
+      } else if (statusClass === "none") {
+        statusDot.classList.add("none");
+      }
+
+      document.getElementById("statusText").textContent = statusLabel;
+      document.getElementById("lastUpdatedText").textContent =
+        "Last updated: " + (lang.last_updated || "—");
+
+      try {
+        const res = await fetch("languages/" + fileName);
+        if (!res.ok) {
+          throw new Error("HTTP " + res.status);
+        }
+        const json = await res.json();
+        renderLanguageDetails(json);
+      } catch (err) {
+        console.error("Failed to load language file:", err);
+        document.getElementById("translationBody").innerHTML =
+          "<div class='empty-state'>Unable to load <code>languages/" +
+          fileName +
+          "</code>.</div>";
+        document.getElementById("sunoBody").innerHTML =
+          "<div class='empty-state'>No Suno content available.</div>";
+      }
+    }
+
+    function renderLanguageDetails(json) {
+      const translation = (json.translation || "").trim();
+      const sunoPrompt  = (json.suno_prompt || "").trim();
+
+      const translationBody = document.getElementById("translationBody");
+      const sunoBody = document.getElementById("sunoBody");
+      const translationTag = document.getElementById("translationTag");
+      const sunoTag = document.getElementById("sunoTag");
+
+      if (translation) {
+        translationBody.textContent = translation;
+        translationTag.textContent = "Payload Present";
+        translationTag.classList.remove("pane-tag-empty");
+        translationTag.classList.add("pane-tag-ok");
+      } else {
+        translationBody.innerHTML =
+          "<div class='empty-state'>No translation content stored for this language yet.</div>";
+        translationTag.textContent = "No Payload";
+        translationTag.classList.remove("pane-tag-ok");
+        translationTag.classList.add("pane-tag-empty");
+      }
+
+      if (sunoPrompt) {
+        sunoBody.textContent = sunoPrompt;
+        sunoTag.textContent = "Prompt Armed";
+        sunoTag.classList.remove("pane-tag-empty");
+        sunoTag.classList.add("pane-tag-ok");
+      } else {
+        sunoBody.innerHTML =
+          "<div class='empty-state'>No Suno prompt generated for this language yet.</div>";
+        sunoTag.textContent = "No Prompt";
+        sunoTag.classList.remove("pane-tag-ok");
+        sunoTag.classList.add("pane-tag-empty");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadManifest);
+  </script>
+</body>
+</html>
